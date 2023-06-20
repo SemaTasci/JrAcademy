@@ -1,0 +1,9 @@
+package com.example.jracademyproject.onboarding.domain.model.gamedataclasses
+
+import androidx.compose.runtime.Stable
+
+import com.example.jracademyproject.onboarding.domain.model.resultdataclasses.Result
+
+@Stable
+data class GamesUIState(val results: List<Result>)
+
