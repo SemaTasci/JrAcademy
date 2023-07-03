@@ -1,4 +1,4 @@
-package com.example.jracademyproject.onboarding.domain.repository
+/*package com.example.jracademyproject.onboarding.domain.repository
 
 import com.example.jracademyproject.items.GameItem
 import com.example.jracademyproject.items.SpecificGameItem
@@ -17,4 +17,4 @@ class ContentRepository @Inject constructor(private val contentService: ContentS
     suspend fun getContentById(id:Int):SpecificGameItem{
         return contentService.getContentById(id).toSpecificGameItem()
     }
-}
+}*/

@@ -13,14 +13,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.jracademyproject.R
+import com.example.jracademyproject.navigation.JRAcademyNavigation
 import com.example.jracademyproject.navigation.JrAcademyNavigationItem
 import com.example.jracademyproject.onboarding.presentation.favorites.FavoriteListScreen
 import com.example.jracademyproject.ui.rememberJrAcademyAppState
 
 @Composable
-fun App() {
+fun App(navController:NavHostController) {
     val appState = rememberJrAcademyAppState()
     val isFavoriteSelected = remember { mutableStateOf(false) }
     val isGameSelected= remember {
@@ -87,11 +89,12 @@ fun App() {
             if (isFavoriteSelected.value) {
                 FavoriteListScreen()
             } else {
-                GameListScreen(appState.navController)
+                JRAcademyNavigation(modifier = Modifier, navController = navController )
                 //(JrAcademyNavigationItem.DashboardScreen.screenRoute)
 
 
             }
+
         }
     }
 }

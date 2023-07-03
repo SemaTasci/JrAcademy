@@ -1,4 +1,4 @@
-package com.example.jracademyproject.onboarding.domain.use_case.content
+/*package com.example.jracademyproject.onboarding.domain.use_case.content
 
 import com.example.jracademyproject.items.GameItem
 import com.example.jracademyproject.onboarding.domain.repository.ContentRepository
@@ -10,3 +10,4 @@ class UseCase @Inject constructor(private val contentRepository: ContentReposito
         return contentRepository.getContent().shuffled()
     }
 }
+*/

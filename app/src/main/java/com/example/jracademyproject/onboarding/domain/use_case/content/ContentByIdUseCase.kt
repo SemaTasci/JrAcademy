@@ -1,4 +1,4 @@
-package com.example.jracademyproject.onboarding.domain.use_case.content
+/*package com.example.jracademyproject.onboarding.domain.use_case.content
 
 import com.example.jracademyproject.items.SpecificGameItem
 import com.example.jracademyproject.onboarding.domain.repository.ContentRepository
@@ -9,4 +9,4 @@ class ContentByIdUseCase @Inject constructor(private val contentRepository: Cont
     {
         return contentRepository.getContentById(id)
     }
-}
+}*/

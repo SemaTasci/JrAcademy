@@ -6,7 +6,7 @@ import com.example.jracademyproject.onboarding.domain.model.gamedataclasses.Game
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
-
+/*
 class ContentService @Inject constructor(private val contentApi: ContentApi)
 {
     suspend fun getContent():List<GameDataClass>{
@@ -21,4 +21,4 @@ class ContentService @Inject constructor(private val contentApi: ContentApi)
             contents.body()!!
         }
     }
-}
+}*/

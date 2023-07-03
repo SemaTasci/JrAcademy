@@ -5,11 +5,11 @@ class Constants {
         const val BASE_URL="https://api.rawg.io/api/"
         const val GAME_ID_ENDPOINT="game?id="
         const val CONTENT_ENDPOINT="content"
-        const val KEY_GAME_ID="id"
+
 
     }
     object Screens{
-        const val GAMELİST_SCREEN="gamelist_screen"
+        const val GAME_LIST_SCREEN="game_list_screen"
         const val CONTENT_SCREEN= "content_screen"
     }
 }

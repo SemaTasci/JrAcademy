@@ -1,57 +1,56 @@
 package com.example.jracademyproject.navigation
 
-import App
+import GameListScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.jracademyproject.onboarding.domain.model.resultdataclasses.Result
-import com.example.jracademyproject.onboarding.presentation.content.ContentScreen
-import com.example.jracademyproject.onboarding.presentation.content.ContentViewModel
-import com.example.jracademyproject.onboarding.presentation.content.contentList
-import com.example.jracademyproject.onboarding.presentation.gamelist.GameListScreen
-import com.example.jracademyproject.util.Constants
-import com.example.jracademyproject.util.Constants.Companion.KEY_GAME_ID
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.jracademyproject.onboarding.presentation.content.GameDetailScreen
+
 import com.example.jracademyproject.util.Constants.Screens.CONTENT_SCREEN
-import com.example.jracademyproject.util.Constants.Screens.GAMELİST_SCREEN
+import com.example.jracademyproject.util.Constants.Screens.GAME_LIST_SCREEN
 
 @Composable
 fun JRAcademyNavigation(
     modifier: Modifier,
-    navController: NavHostController,
-    contentViewModel: ContentViewModel
-
+    navController: NavHostController = rememberNavController()
 ) {
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = JrAcademyNavigationItem.GameListScreen.screenRoute
+        startDestination = Screens.GameListScreen.route
     ) {
-        //TODO : Buraya composable screenler gelecek...
-
-        /*composable(
+  /*composable(
             route = JrAcademyNavigationItem.ContentScreen.screenRoute+ "/{$KEY_GAME_ID}") { backStackEntry ->
                 ContentScreen(id = backStackEntry.arguments?.getString(KEY_GAME_ID)?: "1", contentViewModel =contentViewModel , navController = navController)
             }*/
-                /*"{id}",
-                result.id.toString()*/
-        composable(route=Screens.GameListScreen.route){
-        App()
+        /*"{id}",
+        result.id.toString()*/
+        composable(route = Screens.GameListScreen.route) {
+            GameListScreen(navController)
         }
 //backStackEntry.arguments?.getInt(KEY_GAME_ID)?:    /{$KEY_GAME_ID}"
-        composable(route = Screens.Detail.route ) { backStackEntry ->
-            ContentScreen(id =4, contentViewModel = contentViewModel, navController = navController)
+        composable(route = "content_screen/{gameId}",
+            arguments = listOf(navArgument("gameId"){type = NavType.StringType})
+        ) { backStackEntry ->
+            GameDetailScreen(
+                id = (backStackEntry.arguments?.getString("gameId")?:"0").toInt(),
+                navController = navController
+            )
         }
     }
 }
+
 /*{
     GameListScreen(navController = navController, result = result)
 }*/
-sealed class Screens (val route: String){
+sealed class Screens(val route: String) {
 
-    object GameListScreen: Screens(route = GAMELİST_SCREEN)
-    object Detail: Screens(route = CONTENT_SCREEN)
+    object GameListScreen : Screens(route = GAME_LIST_SCREEN)
+    object Detail : Screens(route = CONTENT_SCREEN)
 
 }
